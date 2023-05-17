@@ -48,6 +48,8 @@ class HomeNewsController extends GetxController {
       if (value != null) {
         allNewList = value;
         update();
+        anyNewList = allNewList;
+        update();
         newLength = allNewList!.data.length;
         update();
         isLoading = false;

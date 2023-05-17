@@ -19,70 +19,80 @@ class HeadlineCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LimitedBox(
-      maxHeight: height * 0.35,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: List.generate(
-          homeNewsController.anyNewList == null ? 0 : 3,
-          (index) => Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: InkWell(
-              onTap: () {
-                Get.to(
-                  () => NewsDetailsPage(
-                    id: homeNewsController.anyNewList!.data[index].id,
-                    homeNewsController: homeNewsController,
-                    height: height,
-                    width: width,
-                  ),
-                );
-              },
-              child: Column(
-                children: <Widget>[
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      homeNewsController.anyNewList == null
-                          ? homeNewsController.allNewList!.data[index].imageUrl
-                          : homeNewsController.anyNewList!.data[index].imageUrl,
-                      fit: BoxFit.cover,
-                      height: height * 0.2,
-                      width: width * 0.8,
+    return GetBuilder(
+        init: homeNewsController,
+        builder: (controller) {
+          return LimitedBox(
+            maxHeight: height * 0.35,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: List.generate(
+                homeNewsController.anyNewList == null ?  0: 3,
+                (index) => Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: InkWell(
+                    onTap: () {
+                      Get.to(
+                        () => NewsDetailsPage(
+                          id: homeNewsController.anyNewList!.data[index].id,
+                          homeNewsController: homeNewsController,
+                          height: height,
+                          width: width,
+                        ),
+                      );
+                    },
+                    child: Column(
+                      children: <Widget>[
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.network(
+                            homeNewsController.anyNewList == null
+                                ? homeNewsController
+                                    .allNewList!.data[index].imageUrl
+                                : homeNewsController
+                                    .anyNewList!.data[index].imageUrl,
+                            fit: BoxFit.cover,
+                            height: height * 0.2,
+                            width: width * 0.8,
+                          ),
+                        ),
+                        kheight10,
+                        Text(
+                          homeNewsController.anyNewList == null
+                              ? homeNewsController
+                                  .allNewList!.data[index].author
+                              : homeNewsController
+                                  .anyNewList!.data[index].author,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        kheight10,
+                        SizedBox(
+                          width: width * 0.8,
+                          child: Text(
+                            homeNewsController.anyNewList == null
+                                ? homeNewsController
+                                    .allNewList!.data[index].content
+                                : homeNewsController
+                                    .anyNewList!.data[index].content,
+                            textDirection: TextDirection.ltr,
+                            maxLines: 3,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.grey[700],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  kheight10,
-                  Text(
-                    homeNewsController.anyNewList == null
-                        ? homeNewsController.allNewList!.data[index].author
-                        : homeNewsController.anyNewList!.data[index].author,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  kheight10,
-                  SizedBox(
-                    width: width * 0.8,
-                    child: Text(
-                      homeNewsController.anyNewList == null
-                          ? homeNewsController.allNewList!.data[index].content
-                          : homeNewsController.anyNewList!.data[index].content,
-                      textDirection: TextDirection.ltr,
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey[700],
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
-          ),
-        ),
-      ),
-    );
+          );
+        });
   }
 }
