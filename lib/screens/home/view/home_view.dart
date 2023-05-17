@@ -128,95 +128,114 @@ class ScreenHome extends StatelessWidget {
                           },
                           child: Text(
                             homeNewsController.items[index],
-                            style: textwhitecolor,
+                            style: TextStyle(
+                              color: homeNewsController.setFilterIndex == index
+                                  ? Colors.blue
+                                  : colorWhite,
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                  // Headlines
-                  HeadlineCard(
-                    height: height,
-                    homeNewsController: homeNewsController,
-                    width: width,
-                  ),
+                  //isLoading
+                  homeNewsController.isLoading == true
+                      ? const Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      :
+                      // Headlines
+                      HeadlineCard(
+                          height: height,
+                          homeNewsController: homeNewsController,
+                          width: width,
+                        ),
                   // Personalized Content
                   ListView.separated(
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemBuilder: (BuildContext contex, int index) {
-                      return InkWell(
-                        onTap: () {
-                          Get.to(
-                            () => NewsDetailsPage(
-                              id: homeNewsController.allNewList!.data[index].id,
-                              homeNewsController: homeNewsController,
-                              height: height,
-                              width: width,
-                            ),
-                          );
-                        },
-                        child: Container(
-                          margin: const EdgeInsets.symmetric(vertical: 10),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image.network(
-                                  homeNewsController.anyNewList == null
-                                      ? homeNewsController
-                                          .allNewList!.data[index].imageUrl
-                                      : homeNewsController
-                                          .anyNewList!.data[index].imageUrl,
-                                  fit: BoxFit.cover,
-                                  height: 80,
-                                  width: 80,
-                                ),
-                              ),
-                              kwidth10,
-                              Expanded(
-                                child: Column(
+                      return homeNewsController.allNewList == null
+                          ? Center(
+                              child: Text('New is Empty'),
+                            )
+                          : InkWell(
+                              onTap: () {
+                                Get.to(
+                                  () => NewsDetailsPage(
+                                    id: homeNewsController
+                                        .allNewList!.data[index].id,
+                                    homeNewsController: homeNewsController,
+                                    height: height,
+                                    width: width,
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                margin:
+                                    const EdgeInsets.symmetric(vertical: 10),
+                                child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    Text(
-                                      homeNewsController.anyNewList == null
-                                          ? homeNewsController
-                                              .allNewList!.data[index].author
-                                          : homeNewsController
-                                              .anyNewList!.data[index].author,
-                                      style: const TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: Image.network(
+                                        homeNewsController.anyNewList == null
+                                            ? homeNewsController.allNewList!
+                                                .data[index].imageUrl
+                                            : homeNewsController.anyNewList!
+                                                .data[index].imageUrl,
+                                        fit: BoxFit.cover,
+                                        height: 80,
+                                        width: 80,
                                       ),
                                     ),
-                                    kheight5,
-                                    Text(
-                                      homeNewsController.anyNewList == null
-                                          ? homeNewsController
-                                              .allNewList!.data[index].content
-                                          : homeNewsController
-                                              .anyNewList!.data[index].content,
-                                      maxLines: 4,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        color: Colors.grey[700],
+                                    kwidth10,
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text(
+                                            homeNewsController.anyNewList ==
+                                                    null
+                                                ? homeNewsController.allNewList!
+                                                    .data[index].author
+                                                : homeNewsController.anyNewList!
+                                                    .data[index].author,
+                                            style: const TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          kheight5,
+                                          Text(
+                                            homeNewsController.anyNewList ==
+                                                    null
+                                                ? homeNewsController.allNewList!
+                                                    .data[index].content
+                                                : homeNewsController.anyNewList!
+                                                    .data[index].content,
+                                            maxLines: 4,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              color: Colors.grey[700],
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                      );
+                            );
                     },
                     separatorBuilder: (BuildContext contex, int index) {
                       return const SizedBox();
                     },
                     itemCount: homeNewsController.anyNewList == null
-                        ? 0
+                        ? homeNewsController.allNewList!.data.length
                         : homeNewsController.anyNewList!.data.length,
                   ),
                 ],
