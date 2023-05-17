@@ -164,7 +164,7 @@ class ScreenHome extends StatelessWidget {
                                       Get.to(
                                         () => NewsDetailsPage(
                                           id: homeNewsController
-                                              .allNewList!.data[index].id,
+                                              .anyNewList!.data[index].id,
                                           homeNewsController:
                                               homeNewsController,
                                           height: height,
