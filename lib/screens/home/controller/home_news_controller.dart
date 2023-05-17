@@ -22,6 +22,7 @@ class HomeNewsController extends GetxController {
   NewsModel? sportsNewList;
 
   NewsModel? anyNewList;
+  int newLength = 0;
 
   int setFilterIndex = 0;
 
@@ -46,6 +47,8 @@ class HomeNewsController extends GetxController {
     await newsService.getAllNews().then((value) {
       if (value != null) {
         allNewList = value;
+        update();
+        newLength = allNewList!.data.length;
         update();
         isLoading = false;
         update();

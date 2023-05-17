@@ -254,7 +254,7 @@ class ScreenHome extends StatelessWidget {
                             return const SizedBox();
                           },
                           itemCount: homeNewsController.anyNewList == null
-                              ? homeNewsController.allNewList!.data.length
+                              ? homeNewsController.newLength
                               : homeNewsController.anyNewList!.data.length,
                         ),
                       ],
