@@ -61,7 +61,8 @@ class NewsDetailsPage extends StatelessWidget {
                       ),
                     ),
                     kheight15,
-                    Row(
+                    ListView(
+                      scrollDirection: Axis.horizontal,
                       children: [
                         CircleAvatar(
                           backgroundColor: Colors.grey[300],
@@ -83,8 +84,8 @@ class NewsDetailsPage extends StatelessWidget {
                         const Spacer(),
                         Text(
                           findNews.date,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
+                          // maxLines: 1,
+                          // overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                             fontSize: 16,
                           ),
