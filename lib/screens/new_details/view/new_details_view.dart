@@ -61,8 +61,7 @@ class NewsDetailsPage extends StatelessWidget {
                       ),
                     ),
                     kheight15,
-                    ListView(
-                      scrollDirection: Axis.horizontal,
+                    Row(
                       children: [
                         CircleAvatar(
                           backgroundColor: Colors.grey[300],
@@ -74,7 +73,7 @@ class NewsDetailsPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                       kwidth10,
+                        kwidth10,
                         Text(
                           findNews.author,
                           style: const TextStyle(
@@ -84,10 +83,10 @@ class NewsDetailsPage extends StatelessWidget {
                         const Spacer(),
                         Text(
                           findNews.date,
-                          // maxLines: 1,
-                          // overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            fontSize: 16,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style:  TextStyle(
+                            fontSize: width * 0.03,
                           ),
                         ),
                       ],
@@ -100,7 +99,6 @@ class NewsDetailsPage extends StatelessWidget {
                         height: 1.5,
                       ),
                     ),
-                    
                   ],
                 ),
               ),
