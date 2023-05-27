@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 import 'package:get/get.dart';
 import 'package:news_app/core/colors.dart';
 import 'package:news_app/screens/home/controller/home_news_controller.dart';
@@ -9,6 +8,7 @@ import 'package:news_app/screens/home/controller/home_news_controller.dart';
 import '../../../core/styles.dart';
 import '../../new_details/view/new_details_view.dart';
 
+// ignore: must_be_immutable
 class SearchScreen extends StatelessWidget {
   SearchScreen({
     super.key,
