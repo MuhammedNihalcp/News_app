@@ -76,8 +76,8 @@ class NewsDetailsPage extends StatelessWidget {
                         kwidth10,
                         Text(
                           findNews.author,
-                          style: const TextStyle(
-                            fontSize: 16,
+                          style:  TextStyle(
+                            fontSize: width * 0.045,
                           ),
                         ),
                         const Spacer(),
