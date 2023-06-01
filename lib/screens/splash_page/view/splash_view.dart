@@ -8,6 +8,7 @@ class ScreenSplash extends StatelessWidget {
 
   SplashController splashController = Get.put(SplashController());
   double height = Get.height;
+  double width = Get.width;
 
   @override
   Widget build(BuildContext context) {
@@ -21,15 +22,11 @@ class ScreenSplash extends StatelessWidget {
           height: height,
           decoration: const BoxDecoration(
             color: backgroundColor,
-            // gradient: LinearGradient(
-            //   begin: Alignment.topCenter,
-            //   end: Alignment.bottomCenter,
-            //   colors: [backgroundColor, buttoncolor],
-            // ),
           ),
-          child: const Center(
+          child: Center(
             child: Image(
-              image: AssetImage('assets/images/news_app_Icon.png'),
+              width: width * 0.5,
+              image: const AssetImage('assets/images/news_app_Icon.png'),
             ),
           ),
         ),
