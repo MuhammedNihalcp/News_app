@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:news_app/core/colors.dart';
+import 'package:news_app/core/styles.dart';
 import 'package:news_app/screens/splash_page/controller/splash_controller.dart';
 
 // ignore: must_be_immutable
@@ -24,11 +25,29 @@ class ScreenSplash extends StatelessWidget {
           decoration: const BoxDecoration(
             color: backgroundColor,
           ),
-          child: Center(
-            child: Image(
-              width: width * 0.5,
-              image: const AssetImage('assets/images/news_app_Icon.png'),
-            ),
+          child: Column(
+            children: [
+              SizedBox(
+                height: height * 0.4,
+              ),
+              Image(
+                width: width * 0.5,
+                image: const AssetImage('assets/images/news_app_Icon.png'),
+              ),
+              const Spacer(),
+              const Text(
+                'From',
+                style: TextStyle(color: colorWhite,fontSize: 15),
+              ),
+              const Text(
+                'MH',
+                style: TextStyle(
+                  color: colorWhite,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              kheight10
+            ],
           ),
         ),
       ),
