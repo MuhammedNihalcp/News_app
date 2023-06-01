@@ -87,7 +87,7 @@ class ScreenHome extends StatelessWidget {
                                   style: TextStyle(
                                     color: homeNewsController.setFilterIndex ==
                                             index
-                                        ? Colors.blue
+                                        ? buttoncolor
                                         : colorWhite,
                                   ),
                                 ),
@@ -162,11 +162,11 @@ class ScreenHome extends StatelessWidget {
                                                           null
                                                       ? homeNewsController
                                                           .allNewList!
-                                                          .data[index +3]
+                                                          .data[index + 3]
                                                           .title
                                                       : homeNewsController
                                                           .anyNewList!
-                                                          .data[index+3]
+                                                          .data[index + 3]
                                                           .title,
                                                   maxLines: 1,
                                                   overflow:
@@ -183,11 +183,11 @@ class ScreenHome extends StatelessWidget {
                                                           null
                                                       ? homeNewsController
                                                           .allNewList!
-                                                          .data[index+3]
+                                                          .data[index + 3]
                                                           .content
                                                       : homeNewsController
                                                           .anyNewList!
-                                                          .data[index+3]
+                                                          .data[index + 3]
                                                           .content,
                                                   maxLines: 4,
                                                   overflow:
@@ -210,7 +210,7 @@ class ScreenHome extends StatelessWidget {
                           },
                           itemCount: homeNewsController.anyNewList == null
                               ? homeNewsController.newLength - 3
-                              : homeNewsController.anyNewList!.data.length- 3,
+                              : homeNewsController.anyNewList!.data.length - 3,
                         ),
                       ],
                     );

@@ -27,7 +27,7 @@ class HomeNewsController extends GetxController {
   int setFilterIndex = 0;
 
   List<String> items = [
-    'All',
+    'All News',
     'Science News',
     'Business News',
     'Sports News',
