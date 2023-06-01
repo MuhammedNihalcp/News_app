@@ -7,6 +7,7 @@ import 'package:news_app/screens/home/view/widget/head_line_cart.dart';
 import 'package:news_app/screens/home/view/widget/logout_dialog_widget.dart';
 import 'package:news_app/screens/new_details/view/new_details_view.dart';
 import 'package:news_app/screens/search_screen/view/search_view.dart';
+import 'package:news_app/util/circular_indicator_widget/circular_indicator_widget.dart';
 
 // ignore: must_be_immutable
 class ScreenHome extends StatelessWidget {
@@ -64,7 +65,7 @@ class ScreenHome extends StatelessWidget {
             builder: (controller) {
               return homeNewsController.isLoading == true
                   ? const Center(
-                      child: CircularProgressIndicator(),
+                      child: CircularIndicatorWidget(),
                     )
                   : ListView(
                       children: <Widget>[
