@@ -40,7 +40,7 @@ class ScreenSplash extends StatelessWidget {
                 style: TextStyle(color: colorWhite,fontSize: 15),
               ),
               const Text(
-                'MH',
+                'MN',
                 style: TextStyle(
                   color: colorWhite,
                   fontWeight: FontWeight.bold,
