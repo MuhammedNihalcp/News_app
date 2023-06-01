@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:news_app/screens/auth/sign_in/view/sign_in_view.dart';
 import 'package:news_app/screens/home/view/home_view.dart';
+import 'package:news_app/screens/splash_page/view/splash_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,15 +26,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: StreamBuilder<User?>(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (BuildContext context, snapshot) {
-          if (snapshot.hasData) {
-            return ScreenHome();
-          }
-          return ScreenSignIn();
-        },
-      ),
+      home: ScreenSplash(),
+      // StreamBuilder<User?>(
+      //   stream: FirebaseAuth.instance.authStateChanges(),
+      //   builder: (BuildContext context, snapshot) {
+      //     if (snapshot.hasData) {
+      //       return ScreenHome();
+      //     }
+      //     return ScreenSignIn();
+      //   },
+      // ),
     );
   }
 }
