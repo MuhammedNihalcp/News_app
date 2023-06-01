@@ -40,7 +40,10 @@ class NewsDetailsPage extends StatelessWidget {
                     top: 10,
                     left: 10,
                     child: IconButton(
-                      icon: const Icon(Icons.arrow_back_ios_new_rounded),
+                      icon: const Icon(
+                        Icons.arrow_back_ios_new_rounded,
+                        color: colorBlack,
+                      ),
                       onPressed: () {
                         Get.back();
                       },
