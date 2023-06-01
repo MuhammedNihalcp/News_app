@@ -49,6 +49,17 @@ class NewsDetailsPage extends StatelessWidget {
                       },
                     ),
                   ),
+                  // Positioned(
+                  //   top: 10,
+                  //   right: 10,
+                  //   child: IconButton(
+                  //     icon: const Icon(
+                  //       Icons.share,
+                  //       color: colorBlack,
+                  //     ),
+                  //     onPressed: () {},
+                  //   ),
+                  // ),
                 ],
               ),
               Padding(
