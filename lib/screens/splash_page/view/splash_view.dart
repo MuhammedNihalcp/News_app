@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:news_app/core/colors.dart';
 import 'package:news_app/screens/splash_page/controller/splash_controller.dart';
 
+// ignore: must_be_immutable
 class ScreenSplash extends StatelessWidget {
   ScreenSplash({super.key});
 
