@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:news_app/core/colors.dart';
 import 'package:news_app/core/styles.dart';
 import 'package:news_app/screens/home/controller/home_news_controller.dart';
 
@@ -76,7 +77,7 @@ class NewsDetailsPage extends StatelessWidget {
                         kwidth10,
                         Text(
                           findNews.author,
-                          style:  TextStyle(
+                          style: TextStyle(
                             fontSize: width * 0.045,
                           ),
                         ),
@@ -85,13 +86,26 @@ class NewsDetailsPage extends StatelessWidget {
                           findNews.date,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style:  TextStyle(
+                          style: TextStyle(
                             fontSize: width * 0.03,
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(height: height * 0.05),
+                    kheight20,
+                    Text(
+                      findNews.title,
+                      style: TextStyle(
+                        fontSize: width * 0.05,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    kheight5,
+                    const Divider(
+                      color: colorBlack,
+                      thickness: 1,
+                    ),
+                    kheight10,
                     Text(
                       findNews.content,
                       style: const TextStyle(
