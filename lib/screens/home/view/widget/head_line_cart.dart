@@ -57,15 +57,20 @@ class HeadlineCard extends StatelessWidget {
                           ),
                         ),
                         kheight10,
-                        Text(
-                          homeNewsController.anyNewList == null
-                              ? homeNewsController
-                                  .allNewList!.data[index].author
-                              : homeNewsController
-                                  .anyNewList!.data[index].author,
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                        SizedBox(
+                          width: width * 0.8,
+                          child: Text(
+                            homeNewsController.anyNewList == null
+                                ? homeNewsController
+                                    .allNewList!.data[index].title
+                                : homeNewsController
+                                    .anyNewList!.data[index].title,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                         kheight10,

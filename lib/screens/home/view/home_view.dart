@@ -109,7 +109,7 @@ class ScreenHome extends StatelessWidget {
                           itemBuilder: (BuildContext contex, int index) {
                             return homeNewsController.allNewList == null
                                 ? const Center(
-                                    child: Text('New is Empty'),
+                                    child: Text('News is Empty'),
                                   )
                                 : InkWell(
                                     onTap: () {
@@ -139,11 +139,11 @@ class ScreenHome extends StatelessWidget {
                                                       null
                                                   ? homeNewsController
                                                       .allNewList!
-                                                      .data[index]
+                                                      .data[index + 3]
                                                       .imageUrl
                                                   : homeNewsController
                                                       .anyNewList!
-                                                      .data[index]
+                                                      .data[index + 3]
                                                       .imageUrl,
                                               fit: BoxFit.cover,
                                               height: 80,
@@ -162,14 +162,15 @@ class ScreenHome extends StatelessWidget {
                                                           null
                                                       ? homeNewsController
                                                           .allNewList!
-                                                          .data[index]
+                                                          .data[index +3]
                                                           .title
                                                       : homeNewsController
                                                           .anyNewList!
-                                                          .data[index]
+                                                          .data[index+3]
                                                           .title,
-                                                          maxLines: 1,
-                                                          overflow: TextOverflow.ellipsis,
+                                                  maxLines: 1,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                   style: const TextStyle(
                                                     fontSize: 16,
                                                     fontWeight: FontWeight.bold,
@@ -182,11 +183,11 @@ class ScreenHome extends StatelessWidget {
                                                           null
                                                       ? homeNewsController
                                                           .allNewList!
-                                                          .data[index]
+                                                          .data[index+3]
                                                           .content
                                                       : homeNewsController
                                                           .anyNewList!
-                                                          .data[index]
+                                                          .data[index+3]
                                                           .content,
                                                   maxLines: 4,
                                                   overflow:
@@ -208,8 +209,8 @@ class ScreenHome extends StatelessWidget {
                             return const SizedBox();
                           },
                           itemCount: homeNewsController.anyNewList == null
-                              ? homeNewsController.newLength
-                              : homeNewsController.anyNewList!.data.length,
+                              ? homeNewsController.newLength - 3
+                              : homeNewsController.anyNewList!.data.length- 3,
                         ),
                       ],
                     );
