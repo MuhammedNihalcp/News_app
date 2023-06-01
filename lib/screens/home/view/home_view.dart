@@ -140,11 +140,11 @@ class ScreenHome extends StatelessWidget {
                                                       null
                                                   ? homeNewsController
                                                       .allNewList!
-                                                      .data[index + 3]
+                                                      .data[index]
                                                       .imageUrl
                                                   : homeNewsController
                                                       .anyNewList!
-                                                      .data[index + 3]
+                                                      .data[index]
                                                       .imageUrl,
                                               fit: BoxFit.cover,
                                               height: 80,
@@ -163,11 +163,11 @@ class ScreenHome extends StatelessWidget {
                                                           null
                                                       ? homeNewsController
                                                           .allNewList!
-                                                          .data[index + 3]
+                                                          .data[index]
                                                           .title
                                                       : homeNewsController
                                                           .anyNewList!
-                                                          .data[index + 3]
+                                                          .data[index]
                                                           .title,
                                                   maxLines: 1,
                                                   overflow:
@@ -184,11 +184,11 @@ class ScreenHome extends StatelessWidget {
                                                           null
                                                       ? homeNewsController
                                                           .allNewList!
-                                                          .data[index + 3]
+                                                          .data[index]
                                                           .content
                                                       : homeNewsController
                                                           .anyNewList!
-                                                          .data[index + 3]
+                                                          .data[index]
                                                           .content,
                                                   maxLines: 4,
                                                   overflow:
@@ -210,8 +210,8 @@ class ScreenHome extends StatelessWidget {
                             return const SizedBox();
                           },
                           itemCount: homeNewsController.anyNewList == null
-                              ? homeNewsController.newLength - 3
-                              : homeNewsController.anyNewList!.data.length - 3,
+                              ? homeNewsController.newLength
+                              : homeNewsController.anyNewList!.data.length,
                         ),
                       ],
                     );
