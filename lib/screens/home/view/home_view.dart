@@ -4,6 +4,7 @@ import 'package:news_app/core/colors.dart';
 import 'package:news_app/core/styles.dart';
 import 'package:news_app/screens/home/controller/home_news_controller.dart';
 import 'package:news_app/screens/home/view/widget/head_line_cart.dart';
+import 'package:news_app/screens/home/view/widget/logout_dialog_widget.dart';
 import 'package:news_app/screens/new_details/view/new_details_view.dart';
 import 'package:news_app/screens/search_screen/view/search_view.dart';
 
@@ -45,56 +46,7 @@ class ScreenHome extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Get.defaultDialog(
-                title: 'Tips',
-                middleText: 'Conform to logout',
-                backgroundColor: buttoncolor,
-                titleStyle: const TextStyle(color: colorWhite),
-                middleTextStyle: const TextStyle(color: colorBlack),
-                confirm: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(backgroundColor),
-                    fixedSize: MaterialStateProperty.all(
-                      Size(width * 0.4, height * 0.05),
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                  ),
-                  onPressed: () {
-                    homeNewsController.signout();
-                  },
-                  child: const Text(
-                    'Conform',
-                    style: buttonStyle,
-                  ),
-                ),
-                cancel: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.transparent),
-                    fixedSize: MaterialStateProperty.all(
-                      Size(width * 0.4, height * 0.05),
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        side:
-                            const BorderSide(color: backgroundColor, width: 2),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                  ),
-                  onPressed: () {
-                    Get.back();
-                  },
-                  child: const Text(
-                    'Cancel',
-                    style: buttonStyle,
-                  ),
-                ),
-              );
+              LogoutDialog().logoutDialog(homeNewsController);
             },
             icon: const Icon(
               Icons.logout_rounded,
@@ -211,11 +163,13 @@ class ScreenHome extends StatelessWidget {
                                                       ? homeNewsController
                                                           .allNewList!
                                                           .data[index]
-                                                          .author
+                                                          .title
                                                       : homeNewsController
                                                           .anyNewList!
                                                           .data[index]
-                                                          .author,
+                                                          .title,
+                                                          maxLines: 1,
+                                                          overflow: TextOverflow.ellipsis,
                                                   style: const TextStyle(
                                                     fontSize: 16,
                                                     fontWeight: FontWeight.bold,
