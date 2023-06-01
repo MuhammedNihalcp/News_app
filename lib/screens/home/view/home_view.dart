@@ -22,7 +22,7 @@ class ScreenHome extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: buttoncolor,
         title: const Text(
-          'News App',
+          'NEWS HUB',
           style: TextStyle(
             color: colorBlack,
             fontWeight: FontWeight.bold,
