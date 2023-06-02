@@ -24,6 +24,16 @@ class SearchScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios_rounded,
+            color: colorBlack,
+          ),
+        ),
         backgroundColor: buttoncolor,
         title: const Text(
           'Search',
@@ -43,6 +53,12 @@ class SearchScreen extends StatelessWidget {
                 return Column(
                   children: [
                     CupertinoSearchTextField(
+                      placeholder: 'Search News',
+                      placeholderStyle: const TextStyle(color: colorBlack),
+                      prefixIcon: const Icon(
+                        Icons.search,
+                        color: colorBlack,
+                      ),
                       autofocus: true,
                       prefixInsets:
                           const EdgeInsetsDirectional.fromSTEB(10, 4, 5, 3),

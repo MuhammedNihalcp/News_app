@@ -37,10 +37,11 @@ class ScreenSplash extends StatelessWidget {
               const Spacer(),
               const Text(
                 'From',
-                style: TextStyle(color: colorWhite,fontSize: 15),
+                style: TextStyle(color: colorWhite,fontSize: 16),
               ),
+              kheight5,
               const Text(
-                'MN',
+                '@MNCP',
                 style: TextStyle(
                   color: colorWhite,
                   fontWeight: FontWeight.bold,
