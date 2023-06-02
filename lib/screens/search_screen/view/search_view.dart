@@ -48,103 +48,103 @@ class SearchScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: GetBuilder(
-              init: homeNewsController,
-              builder: (controller) {
-                return Column(
-                  children: [
-                    CupertinoSearchTextField(
-                      placeholder: 'Search News',
-                      placeholderStyle: const TextStyle(color: colorBlack),
-                      prefixIcon: const Icon(
-                        Icons.search,
-                        color: colorBlack,
-                      ),
-                      autofocus: true,
-                      prefixInsets:
-                          const EdgeInsetsDirectional.fromSTEB(10, 4, 5, 3),
-                      backgroundColor: const Color(0xFFF0EFFF),
-                      controller: homeNewsController.searchController,
-                      onChanged: (value) {
-                        homeNewsController.search(value);
-                      },
+            init: homeNewsController,
+            builder: (controller) {
+              return Column(
+                children: [
+                  CupertinoSearchTextField(
+                    placeholder: 'Search News',
+                    placeholderStyle: const TextStyle(color: colorBlack),
+                    prefixIcon: const Icon(
+                      Icons.search,
+                      color: colorBlack,
                     ),
-                    kheight20,
-                    ListView.separated(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemBuilder: (BuildContext contex, int index) {
-                        return InkWell(
-                          onTap: () {
-                            Get.to(
-                              () => NewsDetailsPage(
-                                id: homeNewsController.seachResult[index].id,
-                                homeNewsController: homeNewsController,
-                                height: height,
-                                width: width,
-                              ),
-                            );
-                          },
-                          child: Container(
-                            margin: const EdgeInsets.symmetric(vertical: 10),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Image.network(
-                                    homeNewsController
-                                        .seachResult[index].imageUrl,
-                                    fit: BoxFit.cover,
-                                    height: 80,
-                                    width: 80,
-                                  ),
-                                ),
-                                kwidth10,
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Text(
-                                        homeNewsController
-                                            .seachResult[index].title,
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: const TextStyle(
-                                          fontSize: 16,
-                                          color: colorWhite,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      kheight5,
-                                      Text(
-                                        homeNewsController
-                                            .seachResult[index].content,
-                                        maxLines: 4,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          color: Colors.grey[700],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
+                    autofocus: true,
+                    prefixInsets:
+                        const EdgeInsetsDirectional.fromSTEB(10, 4, 5, 3),
+                    backgroundColor: const Color(0xFFF0EFFF),
+                    controller: homeNewsController.searchController,
+                    onChanged: (value) {
+                      homeNewsController.search(value);
+                    },
+                  ),
+                  kheight20,
+                  ListView.separated(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemBuilder: (BuildContext contex, int index) {
+                      return InkWell(
+                        onTap: () {
+                          Get.to(
+                            () => NewsDetailsPage(
+                              id: homeNewsController.seachResult[index].id,
+                              homeNewsController: homeNewsController,
+                              height: height,
+                              width: width,
                             ),
+                          );
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(vertical: 10),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.network(
+                                  homeNewsController
+                                      .seachResult[index].imageUrl,
+                                  fit: BoxFit.cover,
+                                  height: 80,
+                                  width: 80,
+                                ),
+                              ),
+                              kwidth10,
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      homeNewsController
+                                          .seachResult[index].title,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        color: colorWhite,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    kheight5,
+                                    Text(
+                                      homeNewsController
+                                          .seachResult[index].content,
+                                      maxLines: 4,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.grey[700],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                        );
-                      },
-                      separatorBuilder: (BuildContext contex, int index) {
-                        return const SizedBox();
-                      },
-                      itemCount: homeNewsController.seachResult.isEmpty
-                          ? 0
-                          : homeNewsController.seachResult.length,
-                    ),
-                  ],
-                );
-              }),
+                        ),
+                      );
+                    },
+                    separatorBuilder: (BuildContext contex, int index) {
+                      return const SizedBox();
+                    },
+                    itemCount: homeNewsController.seachResult.isEmpty
+                        ? 0
+                        : homeNewsController.seachResult.length,
+                  ),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
