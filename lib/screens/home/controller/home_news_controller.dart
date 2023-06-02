@@ -136,17 +136,17 @@ class HomeNewsController extends GetxController {
 
   setFilter(var selection) async {
     switch (selection) {
-      case 'All':
-        getAnyNews(allNewList!.category);
+      case 'All News':
+        getAnyNews('all');
         break;
       case 'Science News':
-        getAnyNews(scienceNewList!.category);
+        getAnyNews('science');
         break;
       case 'Business News':
-        getAnyNews(businessNewList!.category);
+        getAnyNews('business');
         break;
       case 'Sports News':
-        getAnyNews(sportsNewList!.category);
+        getAnyNews('sports');
         break;
     }
   }
