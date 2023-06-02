@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:news_app/core/colors.dart';
 import 'package:news_app/screens/new_details/view/new_details_view.dart';
 
 import '../../../../core/styles.dart';
@@ -27,7 +28,7 @@ class HeadlineCard extends StatelessWidget {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: List.generate(
-                homeNewsController.anyNewList == null ?  0: 3,
+                homeNewsController.anyNewList == null ? 0 : 3,
                 (index) => Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(
@@ -65,11 +66,12 @@ class HeadlineCard extends StatelessWidget {
                                     .allNewList!.data[index].title
                                 : homeNewsController
                                     .anyNewList!.data[index].title,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
+                              color: colorWhite,
                             ),
                           ),
                         ),

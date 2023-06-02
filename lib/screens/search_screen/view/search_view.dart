@@ -112,6 +112,7 @@ class SearchScreen extends StatelessWidget {
                                         overflow: TextOverflow.ellipsis,
                                         style: const TextStyle(
                                           fontSize: 16,
+                                          color: colorWhite,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
