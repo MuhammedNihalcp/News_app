@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:news_app/core/colors.dart';
-
 import 'package:news_app/screens/home/controller/home_news_controller.dart';
 import 'package:news_app/screens/home/view/widget/head_line_cart.dart';
 import 'package:news_app/screens/home/view/widget/logout_dialog_widget.dart';
 import 'package:news_app/screens/home/view/widget/news_items_list_widgets.dart';
 import 'package:news_app/screens/home/view/widget/news_list_widgets.dart';
-
 import 'package:news_app/screens/search_screen/view/search_view.dart';
 import 'package:news_app/util/circular_indicator_widget/circular_indicator_widget.dart';
 
