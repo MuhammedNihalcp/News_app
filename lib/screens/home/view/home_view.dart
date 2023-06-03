@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:news_app/core/colors.dart';
-import 'package:news_app/core/styles.dart';
+
 import 'package:news_app/screens/home/controller/home_news_controller.dart';
 import 'package:news_app/screens/home/view/widget/head_line_cart.dart';
 import 'package:news_app/screens/home/view/widget/logout_dialog_widget.dart';
-import 'package:news_app/screens/new_details/view/new_details_view.dart';
+import 'package:news_app/screens/home/view/widget/news_items_list_widgets.dart';
+import 'package:news_app/screens/home/view/widget/news_list_widgets.dart';
+
 import 'package:news_app/screens/search_screen/view/search_view.dart';
 import 'package:news_app/util/circular_indicator_widget/circular_indicator_widget.dart';
 
@@ -69,32 +71,10 @@ class ScreenHome extends StatelessWidget {
                     )
                   : ListView(
                       children: <Widget>[
-                        // Navigation Bar
-                        Container(
-                          height: height * 0.07,
-                          color: backgroundColor,
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: List.generate(
-                              homeNewsController.items.length,
-                              (index) => TextButton(
-                                onPressed: () {
-                                  homeNewsController.setFilter(
-                                      homeNewsController.items[index]);
-                                  homeNewsController.changeFilterIndex(index);
-                                },
-                                child: Text(
-                                  homeNewsController.items[index],
-                                  style: TextStyle(
-                                    color: homeNewsController.setFilterIndex ==
-                                            index
-                                        ? buttoncolor
-                                        : colorWhite,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
+                        // News Items Bar
+                        NewsItemsListWidget(
+                          height: height,
+                          homeNewsController: homeNewsController,
                         ),
 
                         // Headlines
@@ -104,115 +84,10 @@ class ScreenHome extends StatelessWidget {
                           width: width,
                         ),
                         // Personalized Content
-                        ListView.separated(
-                          physics: const NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemBuilder: (BuildContext contex, int index) {
-                            return homeNewsController.allNewList == null
-                                ? const Center(
-                                    child: Text('News is Empty'),
-                                  )
-                                : InkWell(
-                                    onTap: () {
-                                      Get.to(
-                                        () => NewsDetailsPage(
-                                          id: homeNewsController
-                                              .anyNewList!.data[index].id,
-                                          homeNewsController:
-                                              homeNewsController,
-                                          height: height,
-                                          width: width,
-                                        ),
-                                      );
-                                    },
-                                    child: Container(
-                                      margin: const EdgeInsets.symmetric(
-                                          vertical: 10),
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            child: Image.network(
-                                              homeNewsController.anyNewList ==
-                                                      null
-                                                  ? homeNewsController
-                                                      .allNewList!
-                                                      .data[index]
-                                                      .imageUrl
-                                                  : homeNewsController
-                                                      .anyNewList!
-                                                      .data[index]
-                                                      .imageUrl,
-                                              fit: BoxFit.cover,
-                                              height: 80,
-                                              width: 80,
-                                            ),
-                                          ),
-                                          kwidth10,
-                                          Expanded(
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: <Widget>[
-                                                Text(
-                                                  homeNewsController
-                                                              .anyNewList ==
-                                                          null
-                                                      ? homeNewsController
-                                                          .allNewList!
-                                                          .data[index]
-                                                          .title
-                                                      : homeNewsController
-                                                          .anyNewList!
-                                                          .data[index]
-                                                          .title,
-                                                  maxLines: 1,
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  style: const TextStyle(
-                                                    fontSize: 16,
-                                                    color: colorWhite,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                                ),
-                                                kheight5,
-                                                Text(
-                                                  homeNewsController
-                                                              .anyNewList ==
-                                                          null
-                                                      ? homeNewsController
-                                                          .allNewList!
-                                                          .data[index]
-                                                          .content
-                                                      : homeNewsController
-                                                          .anyNewList!
-                                                          .data[index]
-                                                          .content,
-                                                  maxLines: 4,
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  style: TextStyle(
-                                                    fontSize: 14,
-                                                    color: Colors.grey[700],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  );
-                          },
-                          separatorBuilder: (BuildContext contex, int index) {
-                            return const SizedBox();
-                          },
-                          itemCount: homeNewsController.anyNewList == null
-                              ? homeNewsController.newLength
-                              : homeNewsController.anyNewList!.data.length,
+                        NewsList(
+                          homeNewsController: homeNewsController,
+                          height: height,
+                          width: width,
                         ),
                       ],
                     );
