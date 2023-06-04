@@ -15,7 +15,7 @@ class HomeNewsService {
 
   Future<NewsModel?> getAllNews() async {
     try {
-      final response = await dio.get(baseUrl.baseUrl + endUrl.all);
+      final response = await dio.get(baseUrl.baseUrl1 + endUrl.all);
       log(response.statusCode.toString(), name: 'get all status code');
       // log(response.data.toString(), name: 'get all responce');
       if (response.statusCode == 200 || response.statusCode == 201) {
@@ -35,7 +35,7 @@ class HomeNewsService {
 
   Future<NewsModel?> getScienceNews() async {
     try {
-      final response = await dio.get(baseUrl.baseUrl + endUrl.science);
+      final response = await dio.get(baseUrl.baseUrl1 + endUrl.science);
       //log(response.statusCode.toString(), name: 'get science status code');
       if (response.statusCode == 200 || response.statusCode == 201) {
         return NewsModel.fromJson(response.data);
@@ -54,7 +54,7 @@ class HomeNewsService {
 
   Future<NewsModel?> getBusinessNews() async {
     try {
-      final response = await dio.get(baseUrl.baseUrl + endUrl.business);
+      final response = await dio.get(baseUrl.baseUrl1 + endUrl.business);
       //log(response.statusCode.toString(), name: 'get business status code');
       if (response.statusCode == 200 || response.statusCode == 201) {
         return NewsModel.fromJson(response.data);
@@ -74,7 +74,7 @@ class HomeNewsService {
   Future<NewsModel?> getSportsNews() async {
     // log('sports function');
     try {
-      final response = await dio.get(baseUrl.baseUrl + endUrl.sports);
+      final response = await dio.get(baseUrl.baseUrl1 + endUrl.sports);
       // log(response.statusCode.toString(), name: 'get sports status code');
       // log(response.data.toString(),name: 'sports news');
       if (response.statusCode == 200 || response.statusCode == 201) {

@@ -31,6 +31,15 @@ class HomeNewsController extends GetxController {
     'Science News',
     'Business News',
     'Sports News',
+    'World News',
+    'Sports News',
+    'Politics News',
+    'Technology News',
+    'Startup News',
+    'Entertainment News',
+    'Hatke News',
+    'Automobile News',
+    'Miscellaneous News',
   ];
 
   HomeNewsService newsService = HomeNewsService();

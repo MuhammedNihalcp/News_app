@@ -24,3 +24,29 @@ class NewsModel {
         "success": success,
       };
 }
+
+
+class NewsModel2 {
+  String category;
+  List<NewsDataModel> data;
+  int countarticles;
+
+  NewsModel2({
+    required this.category,
+    required this.data,
+    required this.countarticles,
+  });
+
+  factory NewsModel2.fromJson(Map<dynamic, dynamic> json) => NewsModel2(
+        category: json["category"]?? '',
+        data: List<NewsDataModel>.from(
+            json["data"].map((x) => NewsDataModel.fromJson(x))),
+        countarticles: json["count-articles"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "category": category,
+        "data": List<dynamic>.from(data.map((x) => x.toJson())),
+        "count-articles": countarticles,
+      };
+}

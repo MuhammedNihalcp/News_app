@@ -1,3 +1,4 @@
 class ApiBaseUrl {
-  String baseUrl = 'https://inshorts-news.vercel.app/';
+  String baseUrl1 = 'https://inshorts.deta.dev/news?category=';
+  String baseUrl2 = 'https://inshorts-news.vercel.app/';
 }
