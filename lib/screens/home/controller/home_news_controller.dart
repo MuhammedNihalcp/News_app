@@ -10,10 +10,10 @@ import 'package:news_app/screens/home/service/home_news_service.dart';
 
 class HomeNewsController extends GetxController {
   HomeNewsController() {
-    getAllNews();
-    getBusinessNews();
-    getScienceNews();
-    getSportsNews();
+    // getAllNews();
+    // getBusinessNews();
+    // getScienceNews();
+    // getSportsNews();
   }
   bool isLoading = false;
   NewsModel? allNewList;

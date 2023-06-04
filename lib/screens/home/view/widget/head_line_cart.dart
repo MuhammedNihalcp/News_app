@@ -28,7 +28,13 @@ class HeadlineCard extends StatelessWidget {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: List.generate(
-                homeNewsController.anyNewList == null ? 0 : 3,
+                homeNewsController.anyNewList == null ||
+                        homeNewsController.allNewList == null ||
+                        homeNewsController.businessNewList == null ||
+                        homeNewsController.sportsNewList == null ||
+                        homeNewsController.scienceNewList == null
+                    ? 0
+                    : 3,
                 (index) => Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(
