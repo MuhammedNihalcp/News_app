@@ -169,4 +169,193 @@ class HomeNewsService {
     }
     return null;
   }
+
+  Future<NewsModel2?> getWorldNews2() async {
+    // log('sports function');
+    try {
+      final response = await dio.get(baseUrl.baseUrl2 + endUrl.world);
+      // log(response.statusCode.toString(), name: 'get sports status code');
+      // log(response.data.toString(),name: 'sports news');
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return NewsModel2.fromJson(response.data);
+      }
+    } on DioError catch (error) {
+      log(error.message.toString(), name: 'get world news error');
+      Get.snackbar(
+        'Error',
+        error.toString(),
+        backgroundColor: colorWhite,
+        colorText: colorRed,
+      );
+    }
+    return null;
+  }
+
+  Future<NewsModel2?> getIndiaNews2() async {
+    // log('sports function');
+    try {
+      final response = await dio.get(baseUrl.baseUrl2 + endUrl.india);
+      // log(response.statusCode.toString(), name: 'get sports status code');
+      // log(response.data.toString(),name: 'sports news');
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return NewsModel2.fromJson(response.data);
+      }
+    } on DioError catch (error) {
+      log(error.message.toString(), name: 'get India news error');
+      Get.snackbar(
+        'Error',
+        error.toString(),
+        backgroundColor: colorWhite,
+        colorText: colorRed,
+      );
+    }
+    return null;
+  }
+
+  Future<NewsModel2?> getPoliticsNews2() async {
+    // log('sports function');
+    try {
+      final response = await dio.get(baseUrl.baseUrl2 + endUrl.politics);
+      // log(response.statusCode.toString(), name: 'get sports status code');
+      // log(response.data.toString(),name: 'sports news');
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return NewsModel2.fromJson(response.data);
+      }
+    } on DioError catch (error) {
+      log(error.message.toString(), name: 'get Politics news error');
+      Get.snackbar(
+        'Error',
+        error.toString(),
+        backgroundColor: colorWhite,
+        colorText: colorRed,
+      );
+    }
+    return null;
+  }
+
+  Future<NewsModel2?> getTechnologyNews2() async {
+    // log('sports function');
+    try {
+      final response = await dio.get(baseUrl.baseUrl2 + endUrl.technology);
+      // log(response.statusCode.toString(), name: 'get sports status code');
+      // log(response.data.toString(),name: 'sports news');
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return NewsModel2.fromJson(response.data);
+      }
+    } on DioError catch (error) {
+      log(error.message.toString(), name: 'get technology news error');
+      Get.snackbar(
+        'Error',
+        error.toString(),
+        backgroundColor: colorWhite,
+        colorText: colorRed,
+      );
+    }
+    return null;
+  }
+
+  Future<NewsModel2?> getStartUpNews2() async {
+    // log('sports function');
+    try {
+      final response = await dio.get(baseUrl.baseUrl2 + endUrl.startup);
+      // log(response.statusCode.toString(), name: 'get sports status code');
+      // log(response.data.toString(),name: 'sports news');
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return NewsModel2.fromJson(response.data);
+      }
+    } on DioError catch (error) {
+      log(error.message.toString(), name: 'get StartUp news error');
+      Get.snackbar(
+        'Error',
+        error.toString(),
+        backgroundColor: colorWhite,
+        colorText: colorRed,
+      );
+    }
+    return null;
+  }
+
+  Future<NewsModel2?> getEntertainmentNews2() async {
+    // log('sports function');
+    try {
+      final response = await dio.get(baseUrl.baseUrl2 + endUrl.entertainment);
+      // log(response.statusCode.toString(), name: 'get sports status code');
+      // log(response.data.toString(),name: 'sports news');
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return NewsModel2.fromJson(response.data);
+      }
+    } on DioError catch (error) {
+      log(error.message.toString(), name: 'get Entertainment news error');
+      Get.snackbar(
+        'Error',
+        error.toString(),
+        backgroundColor: colorWhite,
+        colorText: colorRed,
+      );
+    }
+    return null;
+  }
+
+  Future<NewsModel2?> getHatkeNews2() async {
+    // log('sports function');
+    try {
+      final response = await dio.get(baseUrl.baseUrl2 + endUrl.hatke);
+      // log(response.statusCode.toString(), name: 'get sports status code');
+      // log(response.data.toString(),name: 'sports news');
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return NewsModel2.fromJson(response.data);
+      }
+    } on DioError catch (error) {
+      log(error.message.toString(), name: 'get Hatke news error');
+      Get.snackbar(
+        'Error',
+        error.toString(),
+        backgroundColor: colorWhite,
+        colorText: colorRed,
+      );
+    }
+    return null;
+  }
+
+  Future<NewsModel2?> getAutoMobileNews2() async {
+    // log('sports function');
+    try {
+      final response = await dio.get(baseUrl.baseUrl2 + endUrl.automobile);
+      // log(response.statusCode.toString(), name: 'get sports status code');
+      // log(response.data.toString(),name: 'sports news');
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return NewsModel2.fromJson(response.data);
+      }
+    } on DioError catch (error) {
+      log(error.message.toString(), name: 'get AutoMobile news error');
+      Get.snackbar(
+        'Error',
+        error.toString(),
+        backgroundColor: colorWhite,
+        colorText: colorRed,
+      );
+    }
+    return null;
+  }
+
+  Future<NewsModel2?> getMiscellaneousNews2() async {
+    // log('sports function');
+    try {
+      final response = await dio.get(baseUrl.baseUrl2 + endUrl.miscellaneous);
+      // log(response.statusCode.toString(), name: 'get sports status code');
+      // log(response.data.toString(),name: 'sports news');
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return NewsModel2.fromJson(response.data);
+      }
+    } on DioError catch (error) {
+      log(error.message.toString(), name: 'get Miscellaneous news error');
+      Get.snackbar(
+        'Error',
+        error.toString(),
+        backgroundColor: colorWhite,
+        colorText: colorRed,
+      );
+    }
+    return null;
+  }
 }

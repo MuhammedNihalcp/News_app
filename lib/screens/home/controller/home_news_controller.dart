@@ -29,6 +29,15 @@ class HomeNewsController extends GetxController {
   NewsModel2? scienceNewList;
   NewsModel2? businessNewList;
   NewsModel2? sportsNewList;
+  NewsModel2? worldNewList;
+  NewsModel2? indiaNewList;
+  NewsModel2? politicsNewList;
+  NewsModel2? technologyNewList;
+  NewsModel2? startupNewList;
+  NewsModel2? entertainmentNewList;
+  NewsModel2? hatkeNewList;
+  NewsModel2? automobileNewList;
+  NewsModel2? miscellaneousNewList;
 
   NewsModel2? anyNewList;
   int newLength = 0;
