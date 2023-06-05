@@ -17,6 +17,15 @@ class HomeNewsController extends GetxController {
     getBusinessNews2();
     getScienceNews2();
     getSportsNews2();
+    getWorldNews2();
+    getIndiaNews2();
+    getPoliticsNews2();
+    getTechnologyNews2();
+    getStartUpNews2();
+    getEntertaimentNews2();
+    getHatkeNews2();
+    getAutoMobileNews2();
+    getMiscellaneousNews2();
   }
   bool isLoading = false;
   // NewsModel? allNewList;
@@ -50,7 +59,7 @@ class HomeNewsController extends GetxController {
     'Business',
     'Sports',
     'World',
-    'india',
+    'India',
     'Politics',
     'Technology',
     'Startup',
@@ -387,6 +396,9 @@ class HomeNewsController extends GetxController {
     } else if (category == 'science') {
       anyNewList = scienceNewList;
       update();
+    } else if (category == 'sports') {
+      anyNewList = sportsNewList;
+      update();
     } else if (category == 'world') {
       anyNewList = worldNewList;
       update();
@@ -445,7 +457,7 @@ class HomeNewsController extends GetxController {
       case 'Technology':
         getAnyNews('technology');
         break;
-      case 'StartUp':
+      case 'Startup':
         getAnyNews('startup');
         break;
       case 'Entertainment':
