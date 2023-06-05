@@ -41,6 +41,7 @@ class HomeNewsController extends GetxController {
     'Business',
     'Sports',
     'World',
+    'india',
     'Politics',
     'Technology',
     'Startup',

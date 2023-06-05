@@ -11,4 +11,5 @@ class ApiEndUrl {
   String hatke = 'hatke';
   String automobile = 'automobile';
   String miscellaneous = 'miscellaneous';
+  String india = 'india';
 }
