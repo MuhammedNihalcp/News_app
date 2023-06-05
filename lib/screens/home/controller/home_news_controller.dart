@@ -222,6 +222,159 @@ class HomeNewsController extends GetxController {
     });
   }
 
+  void getWorldNews2() async {
+    isLoading = true;
+    update();
+    await newsService.getWorldNews2().then((value) {
+      if (value != null) {
+        worldNewList = value;
+        update();
+        isLoading = false;
+        update();
+      } else {
+        isLoading = false;
+        update();
+        return null;
+      }
+    });
+  }
+
+  void getIndiaNews2() async {
+    isLoading = true;
+    update();
+    await newsService.getIndiaNews2().then((value) {
+      if (value != null) {
+        indiaNewList = value;
+        update();
+        isLoading = false;
+        update();
+      } else {
+        isLoading = false;
+        update();
+        return null;
+      }
+    });
+  }
+
+  void getPoliticsNews2() async {
+    isLoading = true;
+    update();
+    await newsService.getPoliticsNews2().then((value) {
+      if (value != null) {
+        politicsNewList = value;
+        update();
+        isLoading = false;
+        update();
+      } else {
+        isLoading = false;
+        update();
+        return null;
+      }
+    });
+  }
+
+  void getTechnologyNews2() async {
+    isLoading = true;
+    update();
+    await newsService.getTechnologyNews2().then((value) {
+      if (value != null) {
+        technologyNewList = value;
+        update();
+        isLoading = false;
+        update();
+      } else {
+        isLoading = false;
+        update();
+        return null;
+      }
+    });
+  }
+
+  void getStartUpNews2() async {
+    isLoading = true;
+    update();
+    await newsService.getStartUpNews2().then((value) {
+      if (value != null) {
+        startupNewList = value;
+        update();
+        isLoading = false;
+        update();
+      } else {
+        isLoading = false;
+        update();
+        return null;
+      }
+    });
+  }
+
+  void getEntertaimentNews2() async {
+    isLoading = true;
+    update();
+    await newsService.getEntertainmentNews2().then((value) {
+      if (value != null) {
+        entertainmentNewList = value;
+        update();
+        isLoading = false;
+        update();
+      } else {
+        isLoading = false;
+        update();
+        return null;
+      }
+    });
+  }
+
+  void getHatkeNews2() async {
+    isLoading = true;
+    update();
+    await newsService.getHatkeNews2().then((value) {
+      if (value != null) {
+        hatkeNewList = value;
+        update();
+        isLoading = false;
+        update();
+      } else {
+        isLoading = false;
+        update();
+        return null;
+      }
+    });
+  }
+
+  void getAutoMobileNews2() async {
+    isLoading = true;
+    update();
+    await newsService.getAutoMobileNews2().then((value) {
+      if (value != null) {
+        automobileNewList = value;
+        update();
+        isLoading = false;
+        update();
+      } else {
+        isLoading = false;
+        update();
+        return null;
+      }
+    });
+  }
+
+  void getMiscellaneousNews2() async {
+    isLoading = true;
+    update();
+    await newsService.getMiscellaneousNews2().then((value) {
+      if (value != null) {
+        miscellaneousNewList = value;
+        update();
+        isLoading = false;
+        update();
+      } else {
+        isLoading = false;
+        update();
+        return null;
+      }
+    });
+  }
+
   void getAnyNews(String category) async {
     isLoading = true;
     update();
@@ -234,8 +387,32 @@ class HomeNewsController extends GetxController {
     } else if (category == 'science') {
       anyNewList = scienceNewList;
       update();
+    } else if (category == 'world') {
+      anyNewList = worldNewList;
+      update();
+    } else if (category == 'india') {
+      anyNewList = indiaNewList;
+      update();
+    } else if (category == 'politics') {
+      anyNewList = politicsNewList;
+      update();
+    } else if (category == 'technology') {
+      anyNewList = technologyNewList;
+      update();
+    } else if (category == 'startup') {
+      anyNewList = startupNewList;
+      update();
+    } else if (category == 'entertainment') {
+      anyNewList = entertainmentNewList;
+      update();
+    } else if (category == 'hatke') {
+      anyNewList = hatkeNewList;
+      update();
+    } else if (category == 'automobile') {
+      anyNewList = automobileNewList;
+      update();
     } else {
-      anyNewList = sportsNewList;
+      anyNewList = miscellaneousNewList;
       update();
     }
     isLoading = false;
@@ -255,6 +432,33 @@ class HomeNewsController extends GetxController {
         break;
       case 'Sports':
         getAnyNews('sports');
+        break;
+      case 'World':
+        getAnyNews('world');
+        break;
+      case 'India':
+        getAnyNews('india');
+        break;
+      case 'Politics':
+        getAnyNews('politics');
+        break;
+      case 'Technology':
+        getAnyNews('technology');
+        break;
+      case 'StartUp':
+        getAnyNews('startup');
+        break;
+      case 'Entertainment':
+        getAnyNews('entertainment');
+        break;
+      case 'Hatke':
+        getAnyNews('hatke');
+        break;
+      case 'Automobile':
+        getAnyNews('automobile');
+        break;
+      case 'Miscellaneous':
+        getAnyNews('miscellaneous');
         break;
     }
   }
