@@ -1,8 +1,7 @@
-import 'dart:developer';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:news_app/screens/auth/sign_in/view/sign_in_view.dart';
 import 'package:news_app/screens/home/model/home_news_model.dart';
 import 'package:news_app/screens/home/model/new_data_model.dart';
@@ -14,32 +13,42 @@ class HomeNewsController extends GetxController {
     // getBusinessNews();
     // getScienceNews();
     // getSportsNews();
+    getAllNews2();
+    getBusinessNews2();
+    getScienceNews2();
+    getSportsNews2();
   }
   bool isLoading = false;
-  NewsModel? allNewList;
-  NewsModel? scienceNewList;
-  NewsModel? businessNewList;
-  NewsModel? sportsNewList;
+  // NewsModel? allNewList;
+  // NewsModel? scienceNewList;
+  // NewsModel? businessNewList;
+  // NewsModel? sportsNewList;
 
-  NewsModel? anyNewList;
+  // NewsModel? anyNewList;
+  NewsModel2? allNewList;
+  NewsModel2? scienceNewList;
+  NewsModel2? businessNewList;
+  NewsModel2? sportsNewList;
+
+  NewsModel2? anyNewList;
   int newLength = 0;
 
   int setFilterIndex = 0;
 
   List<String> items = [
     'All News',
-    'Science News',
-    'Business News',
-    'Sports News',
-    'World News',
-    'Sports News',
-    'Politics News',
-    'Technology News',
-    'Startup News',
-    'Entertainment News',
-    'Hatke News',
-    'Automobile News',
-    'Miscellaneous News',
+    'Science',
+    'Business',
+    'Sports',
+    'World',
+    'Sports',
+    'Politics',
+    'Technology',
+    'Startup',
+    'Entertainment',
+    'Hatke',
+    'Automobile',
+    'Miscellaneous',
   ];
 
   HomeNewsService newsService = HomeNewsService();
@@ -50,10 +59,91 @@ class HomeNewsController extends GetxController {
     update();
   }
 
-  void getAllNews() async {
+  // void getAllNews() async {
+  //   isLoading = true;
+  //   update();
+  //   await newsService.getAllNews().then((value) {
+  //     if (value != null) {
+  //       allNewList = value;
+  //       update();
+  //       anyNewList = allNewList;
+  //       update();
+  //       newLength = allNewList!.data.length;
+  //       update();
+  //       isLoading = false;
+  //       update();
+  //     } else {
+  //       isLoading = false;
+  //       update();
+  //       return null;
+  //     }
+  //   });
+  // }
+
+  // void getBusinessNews() async {
+  //   isLoading = true;
+  //   update();
+  //   await newsService.getBusinessNews().then((value) {
+  //     if (value != null) {
+  //       businessNewList = value;
+  //       update();
+  //       isLoading = false;
+  //       update();
+  //     } else {
+  //       isLoading = false;
+  //       update();
+  //       return null;
+  //     }
+  //   });
+  // }
+
+  // void getScienceNews() async {
+  //   isLoading = true;
+  //   update();
+  //   await newsService.getScienceNews().then((value) {
+  //     if (value != null) {
+  //       scienceNewList = value;
+  //       update();
+  //       isLoading = false;
+  //       update();
+  //     } else {
+  //       isLoading = false;
+  //       update();
+  //       return null;
+  //     }
+  //   });
+  // }
+
+  // void getSportsNews() async {
+  //   isLoading = true;
+  //   update();
+  //   await newsService.getSportsNews().then((value) {
+  //     if (value != null) {
+  //       sportsNewList = value;
+  //       update();
+  //       log(sportsNewList.toString());
+  //       isLoading = false;
+  //       update();
+  //     } else {
+  //       isLoading = false;
+  //       update();
+  //       return null;
+  //     }
+  //   });
+  // }
+
+  String parseTime(DateTime date) {
+    return DateFormat('kk:mm:a').format(date);
+  }
+
+  String parseDate(DateTime date) {
+    return DateFormat.yMMMd().format(date);
+  }
+
+  void getAllNews2() async {
     isLoading = true;
     update();
-    await newsService.getAllNews().then((value) {
+    await newsService.getAllNews2().then((value) {
       if (value != null) {
         allNewList = value;
         update();
@@ -71,10 +161,10 @@ class HomeNewsController extends GetxController {
     });
   }
 
-  void getBusinessNews() async {
+  void getBusinessNews2() async {
     isLoading = true;
     update();
-    await newsService.getBusinessNews().then((value) {
+    await newsService.getBusinessNews2().then((value) {
       if (value != null) {
         businessNewList = value;
         update();
@@ -88,10 +178,10 @@ class HomeNewsController extends GetxController {
     });
   }
 
-  void getScienceNews() async {
+  void getScienceNews2() async {
     isLoading = true;
     update();
-    await newsService.getScienceNews().then((value) {
+    await newsService.getScienceNews2().then((value) {
       if (value != null) {
         scienceNewList = value;
         update();
@@ -105,14 +195,14 @@ class HomeNewsController extends GetxController {
     });
   }
 
-  void getSportsNews() async {
+  void getSportsNews2() async {
     isLoading = true;
     update();
-    await newsService.getSportsNews().then((value) {
+    await newsService.getSportsNews2().then((value) {
       if (value != null) {
         sportsNewList = value;
         update();
-        log(sportsNewList.toString());
+        // log(sportsNewList2.toString());
         isLoading = false;
         update();
       } else {
@@ -148,27 +238,27 @@ class HomeNewsController extends GetxController {
       case 'All News':
         getAnyNews('all');
         break;
-      case 'Science News':
+      case 'Science':
         getAnyNews('science');
         break;
-      case 'Business News':
+      case 'Business':
         getAnyNews('business');
         break;
-      case 'Sports News':
+      case 'Sports':
         getAnyNews('sports');
         break;
     }
   }
 
-  NewsDataModel findById(String id) {
-    return anyNewList!.data.firstWhere((element) => element.id == id);
-  }
+  // NewsDataModel findById(String id) {
+  //   return anyNewList!.data.firstWhere((element) => element.id == id);
+  // }
 
   TextEditingController searchController = TextEditingController();
-  List<NewsDataModel> seachResult = [];
+  List<NewsDataModel2> seachResult = [];
 
   void search(String keyboard) {
-    List<NewsDataModel> results = [];
+    List<NewsDataModel2> results = [];
     if (keyboard.isEmpty) {
       results = anyNewList!.data;
       update();

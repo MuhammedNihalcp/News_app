@@ -33,7 +33,8 @@ class NewsList extends StatelessWidget {
                 onTap: () {
                   Get.to(
                     () => NewsDetailsPage(
-                      id: homeNewsController.anyNewList!.data[index].id,
+                      index: index,
+                      // id: homeNewsController.anyNewList!.data[index].id,
                       homeNewsController: homeNewsController,
                       height: height,
                       width: width,
@@ -50,9 +51,9 @@ class NewsList extends StatelessWidget {
                         child: Image.network(
                           homeNewsController.anyNewList == null
                               ? homeNewsController
-                                  .allNewList!.data[index].imageUrl
+                                  .allNewList!.data[index].images
                               : homeNewsController
-                                  .anyNewList!.data[index].imageUrl,
+                                  .anyNewList!.data[index].images,
                           fit: BoxFit.cover,
                           height: 80,
                           width: 80,
@@ -81,9 +82,9 @@ class NewsList extends StatelessWidget {
                             Text(
                               homeNewsController.anyNewList == null
                                   ? homeNewsController
-                                      .allNewList!.data[index].content
+                                      .allNewList!.data[index].decription
                                   : homeNewsController
-                                      .anyNewList!.data[index].content,
+                                      .anyNewList!.data[index].decription,
                               maxLines: 4,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(

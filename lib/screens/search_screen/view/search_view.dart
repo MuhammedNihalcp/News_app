@@ -77,7 +77,8 @@ class SearchScreen extends StatelessWidget {
                         onTap: () {
                           Get.to(
                             () => NewsDetailsPage(
-                              id: homeNewsController.seachResult[index].id,
+                              // id: homeNewsController.seachResult[index].id,
+                              index: index,
                               homeNewsController: homeNewsController,
                               height: height,
                               width: width,
@@ -92,8 +93,7 @@ class SearchScreen extends StatelessWidget {
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
                                 child: Image.network(
-                                  homeNewsController
-                                      .seachResult[index].imageUrl,
+                                  homeNewsController.seachResult[index].images,
                                   fit: BoxFit.cover,
                                   height: 80,
                                   width: 80,
@@ -118,7 +118,7 @@ class SearchScreen extends StatelessWidget {
                                     kheight5,
                                     Text(
                                       homeNewsController
-                                          .seachResult[index].content,
+                                          .seachResult[index].decription,
                                       maxLines: 4,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(

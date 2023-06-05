@@ -6,13 +6,15 @@ import 'package:news_app/screens/home/controller/home_news_controller.dart';
 
 // ignore: must_be_immutable
 class NewsDetailsPage extends StatelessWidget {
-  String id;
+  // String id;
+  int index;
   HomeNewsController homeNewsController;
   final double height;
   final double width;
 
   NewsDetailsPage({
-    required this.id,
+    // required this.id,
+    required this.index,
     required this.homeNewsController,
     required this.height,
     required this.width,
@@ -21,7 +23,7 @@ class NewsDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var findNews = homeNewsController.findById(id);
+    // var findNews = homeNewsController.findById(id);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -31,7 +33,7 @@ class NewsDetailsPage extends StatelessWidget {
               Stack(
                 children: [
                   Image.network(
-                    findNews.imageUrl,
+                    homeNewsController.anyNewList!.data[index].images,
                     height: 300,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -69,7 +71,9 @@ class NewsDetailsPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      findNews.time,
+                      homeNewsController.parseTime(
+                        homeNewsController.anyNewList!.data[index].time,
+                      ),
                       style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -81,7 +85,8 @@ class NewsDetailsPage extends StatelessWidget {
                         CircleAvatar(
                           backgroundColor: Colors.grey[300],
                           child: Text(
-                            findNews.author[0].toUpperCase(),
+                            homeNewsController.anyNewList!.data[index].author[0]
+                                .toUpperCase(),
                             style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -90,14 +95,16 @@ class NewsDetailsPage extends StatelessWidget {
                         ),
                         kwidth10,
                         Text(
-                          findNews.author,
+                          homeNewsController.anyNewList!.data[index].author,
                           style: TextStyle(
                             fontSize: width * 0.045,
                           ),
                         ),
                         const Spacer(),
                         Text(
-                          findNews.date,
+                          homeNewsController.parseDate(
+                            homeNewsController.anyNewList!.data[index].time,
+                          ),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
@@ -108,7 +115,7 @@ class NewsDetailsPage extends StatelessWidget {
                     ),
                     kheight20,
                     Text(
-                      findNews.title,
+                      homeNewsController.anyNewList!.data[index].title,
                       style: TextStyle(
                         fontSize: width * 0.05,
                         fontWeight: FontWeight.bold,
@@ -121,7 +128,7 @@ class NewsDetailsPage extends StatelessWidget {
                     ),
                     kheight10,
                     Text(
-                      findNews.content,
+                      homeNewsController.anyNewList!.data[index].decription,
                       style: const TextStyle(
                         fontSize: 18,
                         height: 1.5,
