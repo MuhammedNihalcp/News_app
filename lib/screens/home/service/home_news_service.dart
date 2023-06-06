@@ -91,10 +91,12 @@ class HomeNewsService {
   //   }
   //   return null;
   // }
+
+  //all news service
   Future<NewsModel2?> getAllNews2() async {
     try {
       final response = await dio.get(baseUrl.baseUrl2 + endUrl.all);
-      log(response.statusCode.toString(), name: 'get all status code');
+      // log(response.statusCode.toString(), name: 'get all status code');
       // log(response.data.toString(), name: 'get all responce');
       if (response.statusCode == 200 || response.statusCode == 201) {
         return NewsModel2.fromJson(response.data);
@@ -111,6 +113,7 @@ class HomeNewsService {
     return null;
   }
 
+  //science news service
   Future<NewsModel2?> getScienceNews2() async {
     try {
       final response = await dio.get(baseUrl.baseUrl2 + endUrl.science);
@@ -130,6 +133,7 @@ class HomeNewsService {
     return null;
   }
 
+  //business news service
   Future<NewsModel2?> getBusinessNews2() async {
     try {
       final response = await dio.get(baseUrl.baseUrl2 + endUrl.business);
@@ -149,6 +153,7 @@ class HomeNewsService {
     return null;
   }
 
+  //sports news service
   Future<NewsModel2?> getSportsNews2() async {
     // log('sports function');
     try {
@@ -170,6 +175,7 @@ class HomeNewsService {
     return null;
   }
 
+  //world news service
   Future<NewsModel2?> getWorldNews2() async {
     // log('sports function');
     try {
@@ -191,6 +197,7 @@ class HomeNewsService {
     return null;
   }
 
+  //india news service
   Future<NewsModel2?> getIndiaNews2() async {
     // log('sports function');
     try {
@@ -212,6 +219,7 @@ class HomeNewsService {
     return null;
   }
 
+  //politics news service
   Future<NewsModel2?> getPoliticsNews2() async {
     // log('sports function');
     try {
@@ -233,6 +241,7 @@ class HomeNewsService {
     return null;
   }
 
+  //technology news service
   Future<NewsModel2?> getTechnologyNews2() async {
     // log('sports function');
     try {
@@ -254,6 +263,7 @@ class HomeNewsService {
     return null;
   }
 
+  //startup news service
   Future<NewsModel2?> getStartUpNews2() async {
     // log('sports function');
     try {
@@ -275,6 +285,7 @@ class HomeNewsService {
     return null;
   }
 
+  //entertainment news service
   Future<NewsModel2?> getEntertainmentNews2() async {
     // log('sports function');
     try {
@@ -296,6 +307,7 @@ class HomeNewsService {
     return null;
   }
 
+  //hatke news service
   Future<NewsModel2?> getHatkeNews2() async {
     // log('sports function');
     try {
@@ -317,6 +329,7 @@ class HomeNewsService {
     return null;
   }
 
+  //automobile news service
   Future<NewsModel2?> getAutoMobileNews2() async {
     // log('sports function');
     try {
@@ -338,6 +351,7 @@ class HomeNewsService {
     return null;
   }
 
+  //miscellaneous news service
   Future<NewsModel2?> getMiscellaneousNews2() async {
     // log('sports function');
     try {
